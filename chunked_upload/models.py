@@ -66,7 +66,9 @@ class BaseChunkedUpload(models.Model):
         self.file.close()
         self.file.open(mode='ab')  # mode = append+binary
         # We can use .read() safely because chunk is already in memory
-        self.file.write(chunk.read())
+        with open(self.file.path, 'ab') as f:
+            f.write(chunk.read())
+
         if chunk_size is not None:
             self.offset += chunk_size
         elif hasattr(chunk, 'size'):

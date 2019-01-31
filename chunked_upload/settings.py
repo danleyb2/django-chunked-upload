@@ -53,11 +53,6 @@ CONTENT_TYPE = getattr(settings, 'CHUNKED_UPLOAD_CONTENT_TYPE',
                        DEFAULT_CONTENT_TYPE)
 
 
-# CHUNKED_UPLOAD_MIMETYPE is deprecated, but kept for backward compatibility
-CONTENT_TYPE = getattr(settings, 'CHUNKED_UPLOAD_MIMETYPE',
-                       DEFAULT_CONTENT_TYPE)
-
-
 # Max amount of data (in bytes) that can be uploaded. `None` means no limit
 DEFAULT_MAX_BYTES = None
 MAX_BYTES = getattr(settings, 'CHUNKED_UPLOAD_MAX_BYTES', DEFAULT_MAX_BYTES)
